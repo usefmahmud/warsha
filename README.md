@@ -68,6 +68,8 @@ BIND_IP=127.0.0.1
 
 ## The crew
 
+Full cards with photos and self-written bios: **[CONTRIBUTORS.md](CONTRIBUTORS.md)**
+
 | Agent | Role |
 |---|---|
 | **Hakim** | Coordination — decomposes work, dispatches, reviews deliveries |
