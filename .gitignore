@@ -29,6 +29,7 @@ dist/
 *.db-shm
 *.sqlite3
 *.png
+!contributors/*.png
 !docs/**/*.png
 
 # os / editor
