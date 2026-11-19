@@ -1,0 +1,10 @@
+target-version = "py312"
+line-length = 100
+
+[lint]
+# B008: FastAPI's Depends()/Query() in defaults is the documented pattern.
+# TRY004: pydantic v2 validators must raise ValueError, not TypeError.
+ignore = ["B008", "TRY004"]
+
+[lint.per-file-ignores]
+"tests/*" = ["E501"]

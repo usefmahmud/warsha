@@ -1,0 +1,21 @@
+services:
+  todo:
+    build: { context: ., dockerfile: Dockerfile }
+    image: todo:1.0.0
+    container_name: todo
+    restart: unless-stopped
+    ports:
+      - "${BIND_IP}:8092:8000"
+    environment:
+      TODO_ENV: production
+      TODO_DATABASE_URL: sqlite:////data/todo.db
+      TODO_STATIC_DIR: /app/static
+    volumes:
+      - ./data:/data
+    mem_limit: 400m
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=4).status==200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s

@@ -1,0 +1,92 @@
+@import 'tailwindcss';
+
+/* Arabic-first type stack: system fonts only, so the app renders offline. */
+@theme {
+  --font-sans:
+    'Tajawal', 'Cairo', 'Noto Kufi Arabic', 'IBM Plex Sans Arabic', 'Segoe UI', system-ui,
+    sans-serif;
+  --color-ink-900: #070b16;
+  --color-ink-850: #0b1120;
+  --color-ink-800: #111a2e;
+  --color-ink-700: #17223a;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1100px 560px at 100% -10%, #1e1b4b66, transparent 60%),
+    radial-gradient(820px 460px at -10% 0%, #0e749033, transparent 55%),
+    var(--color-ink-900);
+  background-attachment: fixed;
+}
+
+/* Thin, RTL-friendly scrollbars. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #334155 transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 999px;
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-white/10 bg-white/[0.04] shadow-lg shadow-black/30 backdrop-blur-sm;
+  }
+
+  .btn {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl px-3.5 py-2
+      text-sm font-medium transition select-none disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply bg-brand-600 text-white hover:bg-brand-500 active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply border border-white/10 bg-white/5 text-slate-200 hover:border-white/20 hover:bg-white/10;
+  }
+
+  .btn-danger {
+    @apply border border-rose-500/30 bg-rose-500/10 text-rose-300 hover:bg-rose-500/20;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-white/10 bg-ink-850/80 px-3.5 py-2.5 text-sm text-slate-100
+      placeholder:text-slate-500 outline-none transition focus:border-brand-500/60
+      focus:ring-2 focus:ring-brand-500/25;
+  }
+
+  .chip {
+    @apply rounded-full border px-2.5 py-0.5 text-[11px] font-medium;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise {
+  animation: rise 0.18s ease-out both;
+}
