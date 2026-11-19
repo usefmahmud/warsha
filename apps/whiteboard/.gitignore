@@ -1,0 +1,20 @@
+# python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# database (WAL sidecars included)
+*.db
+*.db-wal
+*.db-shm
+
+# node / vite
+node_modules/
+dist/
+*.tsbuildinfo
+
+# env & os
+.env
+.DS_Store
