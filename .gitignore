@@ -1,0 +1,38 @@
+# secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+*.pem
+*.key
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# node
+node_modules/
+dist/
+*.tsbuildinfo
+
+# data & artifacts
+**/data/
+*.db
+*.db-wal
+*.db-shm
+*.sqlite3
+*.png
+!docs/**/*.png
+
+# os / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
