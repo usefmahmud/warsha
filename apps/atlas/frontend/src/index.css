@@ -1,0 +1,79 @@
+@import 'tailwindcss';
+
+/* Arabic-first type stack: system fonts only, so the app renders offline. */
+@theme {
+  --font-sans:
+    'Tajawal', 'Cairo', 'Noto Kufi Arabic', 'IBM Plex Sans Arabic', 'Segoe UI',
+    system-ui, sans-serif;
+  --color-brand-50: #eef2ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-300: #a5b4fc;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-ink-900: #070b16;
+  --color-ink-850: #0b1120;
+  --color-ink-800: #111a2e;
+  --color-ink-700: #17223a;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 600px at 100% -10%, #1e1b4b55, transparent 60%),
+    radial-gradient(900px 500px at -10% 0%, #0e749033, transparent 55%),
+    var(--color-ink-900);
+}
+
+/* Thin, RTL-friendly scrollbars. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #334155 transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 999px;
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-white/10 bg-white/5 shadow-sm backdrop-blur-sm;
+  }
+
+  .btn {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl px-3.5 py-2
+      text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl px-3.5 py-2
+      text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-50
+      bg-brand-500 text-white shadow-lg shadow-brand-600/20 hover:bg-brand-400;
+  }
+
+  .btn-ghost {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl px-3.5 py-2
+      text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-50
+      border border-white/10 bg-white/5 text-slate-200 hover:bg-white/10;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-white/10 bg-slate-950/60 px-3 py-2 text-sm
+      text-slate-100 outline-none placeholder:text-slate-500
+      focus:border-brand-400/70 focus:ring-2 focus:ring-brand-500/25;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-lg border px-2 py-0.5 text-[11px] font-medium;
+  }
+}
